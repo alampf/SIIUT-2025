@@ -46,7 +46,7 @@ INSTALLED_APPS = [
   'django.contrib.messages',
   'django.contrib.staticfiles',
   'apps.home.apps.HomeConfig',
-  'apps.carrer.apps.CarrerConfig',
+  'apps.career.apps.CareerConfig',
 ]
 
 MIDDLEWARE = [
