@@ -21,7 +21,7 @@ class Level(models.Model):
     return self.short_name
   
   class Meta: 
-    verbose_name = 'Nivel'
+    verbose_name = 'Nivele'
     
 class Career(models.Model):
   name = models.CharField(max_length = 100, verbose_name = 'Nombre')
