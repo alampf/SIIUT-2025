@@ -1,7 +1,8 @@
-from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .forms import QuarterForm
-from .models import Quarter
+from .models import Quarter, Level
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 # Create your views here.
 # CRUD Views for Quarter
@@ -51,3 +52,32 @@ def quarter_delete(request, q_id):
     q = Quarter.objects.get(pk = q_id)
     q.delete()
     return redirect('career:quarter_list')
+  
+#------------------------------------------#
+# CRUD Views for Level
+
+class LevelList(ListView):
+  model = Level
+  template_name = 'career/level/index.html'
+  context_object_name = 'levels'
+  
+class LevelDetails(DetailView):
+  model = Level
+  template_name = 'career/level/details.html'
+  context_object_name = 'level'
+  
+class LevelCreate(CreateView):
+  model = Level
+  template_name = 'career/level/create.html'
+  success_url = reverse_lazy('career:level_list')
+
+class LevelUpdate(UpdateView):
+  model = Level
+  template_name = 'career/level/update.html'
+  success_url = reverse_lazy('career:level_list')
+  
+class LevelDelete(DeleteView):
+  model = Level
+  template_name = 'career/level/delete.html'
+  success_url = reverse_lazy('career:level_list')
+  
