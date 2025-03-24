@@ -39,6 +39,7 @@ else:
 # Application definition
 
 INSTALLED_APPS = [
+  # DJANGO APPS #
   'jazzmin',
   'django.contrib.admin',
   'django.contrib.auth',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
+  # lOCAL APPS #
   'apps.home.apps.HomeConfig',
   'apps.career.apps.CareerConfig',
 ]
@@ -140,14 +142,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
-STATIC_URL = 'static/'
-
 if DEBUG:
     STATICFILES_DIRS = [BASE_DIR / 'static']
 else:
     STATIC_ROOT = BASE_DIR / 'static'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

@@ -1,13 +1,19 @@
 <header class="bg-slate-500 text-white">
-  <nav class="container mx-auto flex justify-between items-center py-4">
-    <a href="" class="text-lg font-bold">SIIUT</a>
-    <ul class="flex space-x-4"> 
-      <li>
-        <a href="">Login</a>
-      </li>
-      <li>
-        <a href="">Logout</a>
-      </li>
-    </ul>
+  <nav class="container mx-auto flex items-center justify-between py-4">
+      <a href="" class="text-lg font-bold">SIIUT</a>
+      <ul class="flex space-x-4">
+          {% if user.is_authenticated %}
+          <li>
+              <form action="{% url 'home:logout' %}" method="post">
+                  {% csrf_token %}
+                  <input type="submit" value="Salir">
+              </form>
+          </li>
+          {% else %}
+          <li>
+              <a href="{% url 'home:login' %}">Login</a>
+          </li>
+          {% endif %}
+      </ul>
   </nav>
 </header>

@@ -1,12 +1,16 @@
 from django.shortcuts import render
+from django.contrib.auth.views import LoginView
+from .forms import CustomLoginForm
 
-# Create your views here.
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
+    authentication_form = CustomLoginForm
 
 def home(request):
-  return render(request, 'home/index.html')
+    return render(request, 'home/index.html')
 
 def about(request):
-  return render(request, 'home/about.html')
+    return render(request, 'home/about.html')
 
 def contact(request):
-  return render(request, 'home/contact.html')
+    return render(request, 'home/contact.html')

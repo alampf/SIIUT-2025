@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SIIUT 2025 | {% block title %}{% endblock %}</title>
-  {% load static %}
-  <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
-  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIUUT 2025 | {% block title %}{% endblock %}</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
 </head>
-
 <body>
-
-  {% include 'shared/menu.html' %}
-  {% block content %}
-  {% endblock %}
-  
+    {% include 'shared/header.html' %}
+    <div class="container m-auto flex">
+        {% include 'shared/menu.html' %}
+        <main class="w-full p-6">
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
 </body>
-
 </html>

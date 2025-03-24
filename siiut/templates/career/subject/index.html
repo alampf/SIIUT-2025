@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Plan de studios{% endblock title %}
+
+{% block content %}
+<h1>{{ career }}</h1>
+<h2 class="py-2 text-center text-xl font-extrabold">Plan de Estudios</h2>
+<table class="w-full table-auto text-left">
+  <thead class="bg-green-400">
+    <tr>
+      <th class="p-4">No</th>
+      <th>Materia</th>
+      <th>Cuatrimestre</th>
+      <th>Horas Totales</th>
+      <th>Horas Semanales</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    {% for subject in subjects %}
+    <tr class="border-b-2 border-gray-300 hover:bg-gray-100">
+      <td class="p-2">{{ subject.id }}</td>
+      <td>{{ subject.name }}</td>
+      <td>{{ subject.quarter }}</td>
+      <td>{{ subject.total_hours }}</td>
+      <td>{{ subject.weekly_hours }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>    
+<div>
+  {% if page_obj.has_previous %}
+      <a href="?page=1">&laquo;</a>
+      <a href="?page={{ page_obj.previous_page_number }}">Atras</a>
+  {% endif %}
+  <span><b><u>Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</u></b></span>
+  {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}">Adelante</a>
+      <a href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+  {% endif %}
+</div>
+{% endblock content %}
+    
+    

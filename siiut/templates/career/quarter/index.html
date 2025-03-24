@@ -3,25 +3,29 @@
 {% block title %}Lista de Cuatrimestres{% endblock title %}
 
 {% block content %}
-<a href="{% url 'career:quarter_create' %}">Nuevo Cuatrimestre</a>
+<a 
+class="py-2 cursor-pointer px-4 bg-green-300 hover:bg-green-700 rounded-xl"
+href="{% url 'career:quarter_create' %}">Nuevo Cuatri</a>
 <table>
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>Cuatrimestre No.</th>
-      <th>Cuatrimestre</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for quarter in quarters %}
-    <tr>
-      <td>{{ quarter.id }}</td>
-      <td>{{ quarter.quarter }}</td>
-      <td>{{ quarter.quarter_name }}</td>
-      <td><a href="{% url 'career:quarter_details' quarter.id %}">Detalles</a></td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Quatrimestre No</th>
+            <th>Quatrimestre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for quarter in quarters %}
+        <tr>
+            <td>{{ quarter.id }}</td>
+            <td>{{ quarter.quarter }}</td>
+            <td>{{ quarter.quarter_name }}</td>
+            <td><a href="{% url 'career:quarter_details' quarter.id %}">Detalles</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table> 
 {% endblock content %}
+    
+    

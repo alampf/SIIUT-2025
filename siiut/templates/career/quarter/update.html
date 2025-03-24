@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %}Actualizar Cuatrimetre{% endblock title %}
-
+{% block title %}Actualiza Cuatrimestre{% endblock title %}
+    
 {% block content %}
-<form method="POST">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit" value="Actualizar" />
+<form method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Actualizar">
 </form>
 {% endblock content %}

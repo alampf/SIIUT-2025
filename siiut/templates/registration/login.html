@@ -1,5 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
 <form method="post">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit" value="Entrar"/>
+    {% csrf_token %}
+    {{ form }}
+    <input 
+    class="w-full bg-slate-400 p-2 text-white hover:bg-slate-500 rounded-xl"
+    type="submit" value="Entrar">
 </form>
+{% endblock %}

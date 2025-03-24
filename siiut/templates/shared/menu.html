@@ -1,16 +1,36 @@
 <nav>
   <ul>
-    <li>
-      <a href="{% url 'home:home' %}" class="block w-[200px] bg-slate-200 hover: bg-slate-400 m-2 rounded-xl p-2">
-        Home</a>
-    </li>
-    <li>
-      <a href="{% url 'home:about' %}" class="block w-[200px] bg-slate-200 hover: bg-slate-400 m-2 rounded-xl p-2">
-        Acerca de</a>
-    </li>
-    <li>
-      <a href="{% url 'home:contact' %}" class="block w-[200px] bg-slate-200 hover: bg-slate-400 m-2 rounded-xl p-2">
-        Contacto</a>
-    </li>
+      <li>
+          <a 
+          class="block w-[200px] bg-slate-200 hover:bg-slate-400 m-2 rounded-xl p-2"
+          href="{% url 'home:home' %}">Home</a>
+      </li>
+      <li>
+          <a 
+          class="block w-[200px] bg-slate-200 hover:bg-slate-400 m-2 rounded-xl p-2"
+          href="{% url 'home:about' %}">Acerca de</a>
+      </li>
+      <li>
+          <a 
+          class="block w-[200px] bg-slate-200 hover:bg-slate-400 m-2 rounded-xl p-2"
+          href="{% url 'home:contact' %}">Contacto</a>
+      </li>
+      {% if user.is_authenticated %}
+      <li>
+          <a 
+          class="block w-[200px] bg-slate-200 hover:bg-slate-400 m-2 rounded-xl p-2"
+          href="{% url 'career:quarter_list' %}">Cuatrimestres</a>
+      </li>
+      <li>
+          <a 
+          class="block w-[200px] bg-slate-200 hover:bg-slate-400 m-2 rounded-xl p-2"
+          href="{% url 'career:level_list' %}">Niveles</a>
+      </li>
+      <li>
+          <a 
+          class="block w-[200px] bg-slate-200 hover:bg-slate-400 m-2 rounded-xl p-2"
+          href="{% url 'career:career_list' %}">Carreras</a>
+      </li>
+      {% endif %}
   </ul>
 </nav>
